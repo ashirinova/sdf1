@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universitet Tədbir İdarəetmə Sistemi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Universitet Tədbirlərinin İdarə Edilməsi</h1>
+  </header>
+
+  <main class="container">
+    <!-- Statistika Paneli -->
+    <section class="card stats-panel">
+      <h2>Statistika və Analitika</h2>
+      <div id="stats-container">Yüklənir...</div>
+    </section>
+
+    <!-- Axtarış və Filtrləmə -->
+    <section class="card">
+      <h2>Tədbirlərin Axtarışı</h2>
+      <div class="filter-box">
+        <input type="text" id="search-input" placeholder="Tədbir adına görə axtar...">
+        <select id="category-filter">
+          <option value="">Bütün Kateqoriyalar</option>
+          <option value="1">Konfrans</option>
+          <option value="2">Seminar</option>
+          <option value="3">Təlim</option>
+          <option value="4">Müsabiqə</option>
+        </select>
+        <button onclick="fetchEvents()">Axtar</button>
+      </div>
+    </section>
+
+    <!-- Yeni Tədbir Forması -->
+    <section class="card">
+      <h2>Yeni Tədbir Yarat</h2>
+      <form id="event-form" onsubmit="handleCreateEvent(event)">
+        <input type="text" id="title" placeholder="Tədbirin Adı" required>
+        <textarea id="description" placeholder="Təsviri"></textarea>
+        <select id="category_id" required>
+          <option value="1">Konfrans</option>
+          <option value="2">Seminar</option>
+          <option value="3">Təlim</option>
+          <option value="4">Müsabiqə</option>
+        </select>
+        <input type="date" id="event_date" required>
+        <input type="time" id="event_time" required>
+        <input type="text" id="location" placeholder="Keçirilmə yeri" required>
+        <input type="number" id="max_capacity" placeholder="Maksimum tutum" min="1" required>
+        <button type="submit">Tədbiri Əlavə Et</button>
+      </form>
+    </section>
+
+    <!-- Tədbirlər Siyahısı -->
+    <section class="card">
+      <h2>Tədbirlər Siyahısı</h2>
+      <div id="events-list"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
